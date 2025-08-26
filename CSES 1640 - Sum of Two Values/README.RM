@@ -1,0 +1,19 @@
+O problema consiste em achar quais dois números inputados dentro de vários resultam num valor específico x
+também inputado pelo usuário.
+
+À principio eu fiz um laço duplo para que cada número fosse comparado com os outros, porém,
+o exercício exige um código que funcione na menor ordem de grandeza possível.
+
+Não consegui pensar em uma forma de resolver o problema, então busquei na internet possíveis soluções e
+encontrei uma que consistia em criar duas variáveis p1 e p2, uma que armazena a posição do primeiro elemento, e 
+outra que armazena a posição do último. 
+
+Então num laço só, depois de organizar o vector, cada iteração compara os elementos 
+nas posições das duas variáveis, e enquanto não encontrar dois valores que somados resultam em x,
+o laço ou aumenta a variável p1, ou diminui a p2. E se encontrar, imprime na tela as posições 1-based
+dos valores n1 e n2 que somados resultam em x.
+
+Dessa forma, o tempo de complexidade é bem menor do que seria se fosse feito um laço duplo.
+
+Aprendi com esse exercício essa nova forma de comparar elementos de um array/vector com eles mesmos
+de forma mais rápida em código.
