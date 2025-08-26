@@ -7,33 +7,32 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int size;
-    long long sum, tmpSum;
+    int tamanhoArray;
+    long long soma, somaTmp;
     
-    cin >> size >> sum;
-    cin.ignore();
+    cin >> tamanhoArray >> soma;
     
-    int pos1 = 0, pos2 = size - 1;
+    int pos1 = 0, pos2 = tamanhoArray - 1;
     
-    vector<pair<long long, int>> values(size);
+    vector<pair<long long, int>> valores(tamanhoArray);
 
-    for (int i = 0; i < size; ++i) {
-        cin >> values[i].first;
-        values[i].second = i + 1;
+    for (int i = 0; i < tamanhoArray; ++i) {
+        cin >> valores[i].first; // armazena o valor na primeira parte do pair
+        valores[i].second = i + 1; // armazena a posição original do número na segunda parte do pair
     }
     
-    sort(values.begin(), values.end());
+    sort(valores.begin(), valores.end()); // ordena os valores em ordem crescente
     
-    while (pos1 < pos2) {
-        tmpSum = values[pos1].first + values[pos2].first;
+    while (pos1 < pos2) { // pos1 comeca no primeiro elemento, pos2 comeca no ultimo elemento
+        somaTmp = valores[pos1].first + valores[pos2].first;
         
-        if (tmpSum == sum) {
-            cout << values[pos1].second << " " << values[pos2].second << endl;
-            return 0;
-        } else if (tmpSum > sum) {
-            --pos2;
+        if (somaTmp == soma) { // valores somados dao resultado desejado 
+            cout << valores[pos1].second << " " << valores[pos2].second << endl;
+            return 0; // imprime as posicoes e encerra o programa
+        } else if (somaTmp > soma) {
+            --pos2; // soma temporaria maior q valor desejado -> soma com o proximo valor menor
         } else {
-            ++pos1;
+            ++pos1; // soma temporaria menor q valor desejado -> soma com o proximo valor maior
         }
     }
     
